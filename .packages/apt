@@ -1,7 +1,5 @@
 bash-completion
 iproute2
-man-db
-maven
 pass
 xdg-utils
 zip
