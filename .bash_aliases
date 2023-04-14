@@ -1,5 +1,12 @@
 export LANG=C.UTF-8
-export AWS_VAULT_BACKEND=pass
+export AWS_PROFILE=devtest-admin
+#export AWS_SDK_LOAD_CONFIG=true
+export AWS_VAULT_BACKEND=file
+export AWS_VAULT_FILE_PASSPHRASE=insecure
+export PIP_CONFIG_FILE=~/.config/pip/pip.conf
+
+alias caconfig="rm -f ~/.config/pip/pip.conf && aws codeartifact login --tool pip --repository dpe-python --domain lacework --domain-owner 249446771485 --region us-west-2"
+alias aws-vault-exec='aws-vault exec ${AWS_PROFILE:-default} --'
 
 parse_git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
